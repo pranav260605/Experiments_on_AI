@@ -1,0 +1,17 @@
+Original:
+A LEFT JOIN returns all rows from the left table and only the matching rows from the right table. When no match is found, the result is NULL for columns from the right table. This is fundamentally different from an INNER JOIN, which returns only rows where a match exists in both tables.
+Claude-Sonnet 4.6:
+A LEFT JOIN gives you every row from the left table, no matter what. For rows where the right table has matching data, that data is included. Where there's no match, the right table's columns just show NULL. This stands in contrast to an INNER JOIN, which is more selective — it only returns rows that have corresponding matches on both sides.
+Chatgpt-GPT-5.5.:
+A LEFT JOIN returns all records from the table on the left side of the join, regardless of whether a matching record exists in the right table. When a match is found, the related data from the right table is included. If no match exists, the columns from the right table are filled with NULL values. In contrast, an INNER JOIN only includes rows where matching records are present in both tables, excluding any unmatched rows.
+Gemini-3.1 Pro:
+LEFT JOIN: This method keeps every single row from your starting (left) table. If it finds a matching row in the second (right) table, it merges the data. If it doesn’t find a match, it still keeps the left row but leaves the right side's columns completely empty (filled with NULLs).
+INNER JOIN: This method is much stricter. It acts as a direct intersection, only returning rows that have a match in both tables and completely discarding any rows that don't line up
+Claude-Sonnet 4.6:
+LEFT JOIN: Every row from the left table makes it into the result, guaranteed. When a corresponding row exists in the right table, the two are combined. When there's no match, the left row still shows up — the right-side columns just come back empty (NULL).
+INNER JOIN: Much more restrictive. Only rows that have a counterpart in both tables are returned. Anything without a match on either side gets dropped entirely.
+Chatgpt-GPT-5.5:
+LEFT JOIN:
+A LEFT JOIN includes all records from the left table in the output. If a matching record is found in the right table, data from both tables is returned together. If no match exists, the row from the left table is still included, while the columns from the right table contain NULL values.
+INNER JOIN:
+An INNER JOIN returns only the rows that have matching records in both tables. Any row that lacks a corresponding match in either table is excluded from the result set.
