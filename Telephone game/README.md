@@ -1,198 +1,76 @@
-# ☎️ Telephone Game — How Meaning Changes Across AI Models
+# 📞 Telephone Game — How AI Changes Meaning
 
-> **An experiment in how information changes when the same prompt travels through different AI models.**
+A small experiment exploring how the meaning of information can change when the same instruction is passed through multiple AI models.
 
-## 🧠 What is this experiment?
+The idea is simple:
 
-The **Telephone Game** explores a simple question:
+**Original → AI Model → AI Model → AI Model → Final Answer**
 
-> **If we pass the same piece of information through multiple AI models, how much does the meaning change?**
+Each model receives the output from the previous model rather than the original input.
 
-The idea is similar to the childhood telephone game.
+## 🎨 Visualization
 
-One person says something.
+![Telephone Game visualization](assets/telephone-game.png)
 
-It gets repeated.
+The visualization shows how a statement can gradually change as it travels through different AI models.
 
-Then repeated again.
+## 🔬 What I Tested
 
-And after several rounds, the final message may look similar to the original — but the meaning can subtly change.
+I passed the same conceptual task through multiple models and compared how their interpretations changed.
 
-I wanted to see whether the same thing happens when information is passed between LLMs.
+The experiment included models such as:
 
----
+- Claude
+- ChatGPT
+- Gemini
 
-## 🎯 The Experiment
+The goal was not simply to determine which model is "best", but to observe how information can drift, simplify, or change meaning as it passes through a chain of models.
 
-The experiment takes an original statement and passes it through multiple AI models.
+## 💡 Key Observation
 
-```text
-Original Information
-        ↓
-     Claude
-        ↓
-     ChatGPT
-        ↓
-      Gemini
-        ↓
-     Claude
-        ↓
-     ChatGPT
-        ↓
-   Final Output
-```
+The interesting part of the experiment is that **semantic similarity does not necessarily mean correctness**.
 
-At every stage, the model receives information produced by the previous model.
+A model can produce an answer that sounds highly plausible while subtly changing the original meaning.
 
-The goal is **not simply to measure which model is "best."**
+This makes the telephone-game setup useful for thinking about:
 
-Instead, the goal is to observe:
+- Information drift
+- Model-to-model communication
+- Hallucination
+- Context loss
+- Semantic interpretation
+- Reliability of chained AI systems
 
-- What information is preserved?
-- What information disappears?
-- What new assumptions appear?
-- Does the model become more confident while becoming less accurate?
-- How does wording change the interpretation?
-- Where does the original meaning get distorted?
+## 📊 Results
 
----
+The raw outputs from the experiment are available in:
 
-## 🔬 Example
+[`outputs.txt`](outputs.txt)
 
-One of the experiments looked at a SQL concept involving a `LEFT JOIN`.
+## 🎯 Why This Experiment?
 
-The original meaning was essentially:
+When multiple AI systems are chained together, each model becomes another opportunity for the original meaning to change.
 
-> Only rows where a match exists in both tables.
+The experiment asks:
 
-As the statement travelled through different models, the wording changed.
-
-Some models preserved the intended meaning.
-
-Others gradually introduced a different interpretation.
-
-This is the interesting part of the experiment:
-
-### Similar wording ≠ identical meaning
-
-A response can **sound very similar to the original** while actually changing an important logical condition.
+> **How much can meaning change when information travels from one AI model to another?**
 
 ---
 
-## 🖼️ Visualization
-
-![Telephone Game experiment visualization](./assets/telephone-game.png)
-
-The visualization shows how the information changes as it passes through different AI models.
-
----
-
-## 💡 The Key Insight
-
-The experiment made me interested in a broader question:
-
-> **Can AI systems preserve meaning reliably when information is repeatedly transformed?**
-
-This matters because AI systems increasingly communicate with:
-
-- other AI agents
-- automated pipelines
-- summarization systems
-- retrieval systems
-- evaluation systems
-- human users
-
-A small semantic change at one stage can become a significant error after several transformations.
-
----
-
-## 🧪 What I am measuring
-
-The experiment can be extended to compare models on:
-
-| Dimension | Question |
-|---|---|
-| Semantic preservation | Did the original meaning survive? |
-| Accuracy | Is the final statement factually correct? |
-| Logical consistency | Did logical relationships change? |
-| Confidence | Did the model become more confident despite changing the meaning? |
-| Information loss | What details disappeared? |
-| Information addition | Did the model introduce unsupported details? |
-| Error propagation | Do small errors become larger over multiple rounds? |
-
----
-
-## 🚀 Why this experiment is interesting
-
-This is not intended to be another chatbot application.
-
-The interesting question is the **behavior of AI systems themselves**.
-
-Instead of asking:
-
-> "Can I build something with an LLM?"
-
-the experiment asks:
-
-> **"What happens when LLMs are used as components in a chain?"**
-
-That distinction is what makes this an experiment rather than simply an AI application.
-
----
-
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 Telephone game/
-│
 ├── README.md
 ├── outputs.txt
-│
 └── assets/
     └── telephone-game.png
 ```
 
----
+## 🚀 Takeaway
 
-## 🔭 Possible Extensions
+The telephone game is a simple way to visualize a larger problem in AI systems:
 
-Future experiments could test:
+**Similarity ≠ Correctness**
 
-1. **More models**  
-   Compare additional LLMs in the chain.
-
-2. **Longer chains**  
-   Test 5, 10, 20 or 50 rounds.
-
-3. **Different types of information**  
-   - SQL
-   - mathematics
-   - legal text
-   - technical documentation
-   - instructions
-   - factual statements
-
-4. **Automatic semantic evaluation**  
-   Use another model or human evaluation to measure how much the meaning changed.
-
-5. **Error propagation**  
-   Identify the round where the first meaningful deviation occurs.
-
-6. **Prompt sensitivity**  
-   Test whether different system prompts change how information survives.
-
----
-
-## 🧩 Core Question
-
-The entire project can be reduced to one question:
-
-> **When information travels through AI, does the message survive — or does it slowly become a different message?**
-
----
-
-## 📜 Status
-
-**Experiment / Research Prototype**
-
-This repository contains the outputs and observations from the experiment.
+When building AI pipelines, we should evaluate not only whether the final output looks reasonable, but also whether the original meaning was preserved.
