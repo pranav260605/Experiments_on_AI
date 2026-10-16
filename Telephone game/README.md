@@ -10,13 +10,7 @@ Each model receives the output from the previous model rather than the original 
 
 ## 🎨 Visualization
 
-## 🎨 Visualization
-
-Telephone game/assets/Echoes of Aswaththama_ AI’s Message Chain.png
-
-The visualization shows how a statement can gradually change as it travels through different AI models.
-
-The visualization shows how a statement can gradually change as it travels through different AI models.
+![Telephone Game visualization](assets/telephone-game.png)
 
 ## 🔬 What I Tested
 
